@@ -26,5 +26,72 @@ Authorizes the instance to upload and retrieve files securely
 * Finally, I configured a scheduled script to automate the backup process.
 * This project helped me understand EC2, S3, IAM roles and policies, AWS CLI commands, and basic backup and recovery operations.
 
+
+Step 1 — Create an S3 bucket
+  <img width="940" height="374" alt="image" src="https://github.com/user-attachments/assets/7f3f0872-14f5-47cd-b765-c9cb7393d219" />
+
+
+Step 2 — Create an EC2 instance
+<img width="940" height="412" alt="image" src="https://github.com/user-attachments/assets/0f9163d4-fa99-4d5f-b1d9-fc1c9885ebfe" />
+
+
+Step 3 — Create an IAM role for EC2
+<img width="940" height="428" alt="image" src="https://github.com/user-attachments/assets/031bb185-a59d-4f1c-b00c-8fe6d0d5edd2" />
+
+
+Step 4 — Connect to your EC2 instance
+<img width="940" height="417" alt="image" src="https://github.com/user-attachments/assets/3980f3bb-ca7d-4b67-bda9-d2b2edd59d6c" />
+
+
+<img width="940" height="425" alt="image" src="https://github.com/user-attachments/assets/54ce15e9-7d8f-4941-a064-f9eae41cf006" />
+
+
+
+Step 5 — Create a file on EC2
+mkdir -p ~/project-data
+
+echo "This is my EC2 backup project" \
+  > ~/project-data/backup.txt
+
+
+Step 6 — Back up the file from EC2 to S3
+
+aws s3 cp ~/project-data/backup.txt \
+  s3://ec2-backup-project1/backups/backup.txt
+
+If successful, the CLI displays an upload message similar to:
+upload: project-data/backup.txt to s3://YOUR_BUCKET_NAME/backups/backup.txt
+
+Verify that the file exists in S3:
+aws s3 ls s3://YOUR_BUCKET_NAME/backups/
+
+You can also check it in the AWS Console:
+1.	Open S3 → your bucket.
+2.	Open the backups/ folder.
+3.	Confirm that backup.txt appears.
+
+
+
+Step 7 — Restore the file from S3 to EC2
+
+Confirm it is gone:
+ls ~/project-data/
+
+Next, download the backup from S3:
+aws s3 cp s3://YOUR_BUCKET_NAME/backups/backup.txt \
+  ~/project-data/backup.txt
+  
+Check the restored file:
+cat ~/project-data/backup.txt
+
+Expected output:
+This is my EC2 backup project
+
+Backup test
+The file was copied from EC2 to S3.
+Restore test
+The deleted local file was recovered from S3.
+This is my EC2 and S3 integration project
+
   
 
