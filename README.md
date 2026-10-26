@@ -6,17 +6,18 @@ Project-01: Automated EC2-to-S3 Backup and Restore Using AWS
 
 
 
-<img width="15" height="23" alt="image" src="https://github.com/user-attachments/assets/508a4203-b4c5-41ee-b807-9be06331d326" />
-Step - 01: EC2 — Compute 
+
+<img width="15" height="23" alt="image" src="https://github.com/user-attachments/assets/508a4203-b4c5-41ee-b807-9be06331d326" /> Step - 01: EC2 — Compute 
 Runs the application and creates or processes data
 
-<img width="17" height="16" alt="image" src="https://github.com/user-attachments/assets/47c1e6c8-f2f6-4d1c-bc29-01c28c97df42" />
-Step -02: S3 — Storage
+
+<img width="17" height="16" alt="image" src="https://github.com/user-attachments/assets/47c1e6c8-f2f6-4d1c-bc29-01c28c97df42" /> Step -02: S3 — Storage
 Stores copies of files independently of the EC2 instance
 
-<img width="11" height="16" alt="image" src="https://github.com/user-attachments/assets/54bbca33-2d64-4f47-b13c-12daed6d7c0d" />
-Step - 03: IAM — Access control
+
+<img width="11" height="16" alt="image" src="https://github.com/user-attachments/assets/54bbca33-2d64-4f47-b13c-12daed6d7c0d" /> Step - 03: IAM — Access control
 Authorizes the instance to upload and retrieve files securely
+
 
 
 * The objective of this project was to implement a simple, secure backup and recovery solution using Amazon EC2 and Amazon S3.
